@@ -34,7 +34,7 @@ class CreditCardConceptPage extends StatelessWidget {
                   Text(
                     'Bank Cards',
                     style: textTheme.headlineMedium!.copyWith(
-                      color: Colors.white,
+                      color: const Color.fromARGB(255, 255, 17, 0),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -60,7 +60,7 @@ class CreditCardConceptPage extends StatelessWidget {
                         builder: (_, value, ___) => Text(
                           value.toStringAsFixed(2),
                           style: textTheme.titleLarge!.copyWith(
-                            color: Colors.white,
+                            color: Colors.amber,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -114,7 +114,7 @@ class CreditCardConceptPage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 105,
+              height: 150,
             ),
           ],
         ),
