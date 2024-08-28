@@ -10,11 +10,11 @@ class CreditCardWidget extends StatefulWidget {
   final VoidCallback? onTap;
 
   const CreditCardWidget({
-    Key? key,
+    super.key,
     this.card,
     this.isDetail = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   _CreditCardWidgetState createState() => _CreditCardWidgetState();
@@ -38,8 +38,9 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
         });
       }
     });
-    if (!_animationController.isAnimating)
+    if (!_animationController.isAnimating) {
       _animationController.forward(from: 0.0);
+    }
   }
 
   void _onDragUpdate(DragUpdateDetails details) {
@@ -58,7 +59,9 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
   @override
   void initState() {
     _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
     super.initState();
   }
 
@@ -136,11 +139,12 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
-                              constraints.maxWidth * 0.05),
+                            constraints.maxWidth * 0.05,
+                          ),
                           gradient: LinearGradient(
                             begin: Alignment.bottomLeft,
                             end: Alignment.topRight,
-                            stops: [
+                            stops: const [
                               0.3,
                               1.0,
                             ],
@@ -159,7 +163,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                Row(
+                                const Row(
                                   children: [
                                     Expanded(
                                       child: Text(
@@ -191,7 +195,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                     children: [
                                       Expanded(
                                         child: Image.asset(
-                                          'images/credit_cards/chip_logo.png',
+                                          'assets/chip_logo.png',
                                           alignment: Alignment.centerLeft,
                                         ),
                                       ),
@@ -200,9 +204,10 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                         child: canAnimate
                                             ? TweenAnimationBuilder<int>(
                                                 tween: IntTween(
-                                                    begin: 0,
-                                                    end: widget
-                                                        .card!.number!.length),
+                                                  begin: 0,
+                                                  end: widget
+                                                      .card!.number!.length,
+                                                ),
                                                 duration: const Duration(
                                                     milliseconds: 800),
                                                 builder:
@@ -212,20 +217,21 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                                         .substring(0, snapshot),
                                                     maxLines: 1,
                                                     textAlign: TextAlign.end,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                       fontWeight:
                                                           FontWeight.w700,
                                                       fontSize: 16,
                                                       color: Colors.white,
                                                     ),
                                                   );
-                                                })
+                                                },
+                                              )
                                             : const SizedBox.shrink(),
                                       ),
                                     ],
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Align(
                                   alignment: Alignment.bottomCenter,
                                   child: Row(
@@ -244,7 +250,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                           const SizedBox(
                                             height: 5,
                                           ),
-                                          Text(
+                                          const Text(
                                             'Diegoveloper',
                                             style: TextStyle(
                                               fontSize: 14,
@@ -254,7 +260,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                           )
                                         ],
                                       ),
-                                      Expanded(
+                                      const Expanded(
                                         child: Text(
                                           'VISA',
                                           maxLines: 1,
@@ -296,7 +302,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                           ),
                           child: Column(
                             children: [
-                              Spacer(),
+                              const Spacer(),
                               Expanded(
                                 child: Container(
                                   color: Colors.black26,
@@ -313,7 +319,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                   children: [
                                     Row(
                                       children: [
-                                        Spacer(),
+                                        const Spacer(),
                                         Expanded(
                                           child: Container(
                                             color: Colors.white,
@@ -321,7 +327,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                                             child: Text(
                                               widget.card!.ccv!,
                                               textAlign: TextAlign.end,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: Colors.black,
                                               ),
                                             ),
