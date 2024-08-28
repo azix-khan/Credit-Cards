@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class CreditCard {
   final Color? color;
@@ -16,7 +15,7 @@ class CreditCard {
   });
 }
 
-final Random random = new Random();
+final Random random = Random();
 
 double doubleInRange(Random source, int start, int end) =>
     source.nextDouble() * (end - start) + start;

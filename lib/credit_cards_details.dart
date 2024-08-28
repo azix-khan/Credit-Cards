@@ -7,15 +7,13 @@ import 'package:flutter/material.dart';
 class CreditCardsConceptDetailPage extends StatelessWidget {
   final CreditCard? card;
 
-  const CreditCardsConceptDetailPage({Key? key, this.card}) : super(key: key);
+  const CreditCardsConceptDetailPage({super.key, this.card});
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Theme(
       data: ThemeData.dark().copyWith(
-        // backgroundColor: Colors.black,
-
         scaffoldBackgroundColor: Colors.black,
       ),
       child: Scaffold(
@@ -107,7 +105,7 @@ class MyCardHeaderDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -141,20 +139,20 @@ final random = Random();
 class MovementWidget extends StatelessWidget {
   final int? index;
 
-  const MovementWidget({Key? key, this.index}) : super(key: key);
+  const MovementWidget({super.key, this.index});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
         "Movement ${index! + 1}",
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
       subtitle: Text(
         categories[index! % categories.length],
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.grey,
         ),
       ),
@@ -163,7 +161,7 @@ class MovementWidget extends StatelessWidget {
       ),
       trailing: Text(
         doubleInRange(random, 1, 5000).toStringAsFixed(2),
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
